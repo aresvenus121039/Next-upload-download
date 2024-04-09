@@ -27,7 +27,7 @@ export const POST = async (req, res) => {
   try {
     // Write the file to the specified directory (public/assets) with the modified filename
     await writeFile(
-      path.join(process.cwd(), "public/assets/" + filename),
+      path.join(process.cwd(), "public/" + filename),
       buffer
     );
 
