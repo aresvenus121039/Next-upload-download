@@ -27,7 +27,7 @@ export const POST = async (req, res) => {
   try {
     // Write the file to the specified directory (public/assets) with the modified filename
     await writeFile(
-      path.join("public/" + filename),
+      path.resolve(filename),
       buffer
     );
 
@@ -36,6 +36,6 @@ export const POST = async (req, res) => {
   } catch (error) {
     // If an error occurs during file writing, log the error and return a JSON response with a failure message and a 500 status code
     console.log("Error occurred ", error);
-    return NextResponse.json({ Message: "Failed", status: 500, filename: filename, path: process.cwd(), error: error });
+    return NextResponse.json({ Message: "Failed", status: 500, filename: filename, path: path.resolve(filename), error: error });
   }
 };
