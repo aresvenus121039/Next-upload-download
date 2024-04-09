@@ -36,6 +36,6 @@ export const POST = async (req, res) => {
   } catch (error) {
     // If an error occurs during file writing, log the error and return a JSON response with a failure message and a 500 status code
     console.log("Error occurred ", error);
-    return NextResponse.json({ Message: "Failed", status: 500 });
+    return NextResponse.json({ Message: "Failed", status: 500, filename: filename });
   }
 };
